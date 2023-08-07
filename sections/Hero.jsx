@@ -1,29 +1,48 @@
 'use client';
 import { motion } from "framer-motion";
-
+import "./Hero.css";
 import styles from "../styles";
 import { slideIn, staggerContainer, textVariant } from "../utils/motion";
 
 const Hero = () => ( 
-    <section className={`${styles.yPaddings} sm:pl-16 pl-6`}>
+    <section className={`${styles.yPaddings} sm:pl-16 pl-6  border-2`}>
          <motion.div  
            variants={staggerContainer}
            initial="hidden"
            whileInView="show"
            viewport={{ once: false, amount: 0.25 }}
-           className="border flex justify-center text-center"
+           className="border-2 text-center"
          >
-           <div className="border-2 w-1/2 flex">
-            <motion.h1 variants={textVariant(1.1)} className="text-white text-xl border">
+           <div className="border-2  w-1/2 ">
+            <motion.h1 variants={textVariant(1.1)} className="heroheader">
               Metaverse  
             </motion.h1>
-            <motion.div variants={textVariant(1.2)} className="border-2 flex">
-               <h1 className="">Ma</h1>
-               <div className="border-2">d</div>
-               <h1 className="text-xl">Ness</h1> 
+            <motion.div variants={textVariant(1.2)} className="herosubheader">
+               <h1 className="subone">Ma</h1>
+               <div className="spantext"></div>
+               <h1 className="subtwo">Ness</h1> 
              </motion.div>     
             </div>    
-            </motion.div> 
+
+            <motion.div variants={slideIn('right', 'tween', 0.2, 1)} className="relative w-full md:-mt-[20px] -mt-[12px]">
+           <div className="absolute w-full h-[300px] hero-gradient rounded-tl-[140px] z-[0] -top-[30px]"  />
+             <img  
+               src="/cover.png"
+               alt="cover"
+                className="w-full sm:h-[500px] h-[350px] object-cover rounded-tl-[140px] z-10 relative"
+              />
+
+              <a href="#explore">
+                <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
+                  <img     
+                    src="/stamp.png"
+                    alt="stamp"
+                     className="sm:w-[155px] w-[100px] sm:h-[155px] h-[100px] object-contain"
+                     />
+                </div>
+              </a>
+          </motion.div>
+        </motion.div> 
            </section>
 );
 
